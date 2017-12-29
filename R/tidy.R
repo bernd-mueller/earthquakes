@@ -2,25 +2,29 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(stringr)
-#' Title
+
+#' Clean the location name by removing the country name with colon
 #'
-#' @param locname
+#' @param locname character vector with the location name
 #'
-#' @return
+#' @return character vector with removed country name with colon
 #' @export
 #'
 #' @examples
+#' \dontrun {
+#'   eq_location_clean("GREECE:  THERA ISLAND (SANTORINI)")
+#' }
 eq_location_clean <- function (locname) {
   cleaned_locname <- str_to_title(gsub(".*:  ", "", locname))
   cleaned_locname
 }
 
 
-#' Title
+#' Read the earthquake data from file and tidy it up
 #'
-#' @param filename
+#' @param filename character vector with the file path containing the earthquake data
 #'
-#' @return
+#' @return data table that contains the cleaned earthquake data
 #' @export
 #'
 #' @examples
