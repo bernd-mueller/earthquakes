@@ -35,11 +35,13 @@ eq_location_clean <- function (locname) {
 eq_clean_data <- function (filename) {
   eqtable <- read_delim(filename, delim = "\t")
   cleaned_eqtable <- eqtable %>%
-    mutate(LONGITUDE = as.numeric(LONGITUDE),
+    mutate(DATE=YEAR, LONGITUDE = as.numeric(LONGITUDE),
            LATITUDE = as.numeric(LATITUDE),
            LOCATION_NAME = eq_location_clean(LOCATION_NAME)) %>%
-    select (YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME) %>%
-    unite(DATE, YEAR, MONTH, DAY, sep = "-", remove = TRUE)
+    select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME)
+    #select (YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME) %>%
+    #unite(DATE, YEAR, MONTH, DAY, sep = "-", remove = TRUE)
+
   cleaned_eqtable
 }
 
