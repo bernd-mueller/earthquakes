@@ -33,15 +33,27 @@ eq_location_clean <- function (locname) {
 #' }
 #'
 eq_clean_data <- function (filename) {
+  if (is.character(filename)) {
+    stop (paste("File name is not a String of Characters"), filename)
+  }
+
   eqtable <- read_delim(filename, delim = "\t")
+
+  test_cols = c("YEAR", "MONTH", "DAY", "LATITUDE", "LONGITUDE", "DEATHS")
+  if (!all(test_cols %in% colnames(eqtable))) {
+    stop(paste("Not all coloumns", test_cols, "found in", colnames(eqtable)))
+  }
+
+
   cleaned_eqtable <- eqtable %>%
     mutate(DATE=YEAR, LONGITUDE = as.numeric(LONGITUDE),
            LATITUDE = as.numeric(LATITUDE),
-           LOCATION_NAME = eq_location_clean(LOCATION_NAME)) %>%
-    select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME)
+           LOCATION_NAME = eq_location_clean(LOCATION_NAME),
+           DEATHS = as.numeric(DEATHS)) %>%
+    select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME, DEATHS)
     #select (YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME) %>%
     #unite(DATE, YEAR, MONTH, DAY, sep = "-", remove = TRUE)
 
-  cleaned_eqtable
+  return (cleaned_eqtable)
 }
 
