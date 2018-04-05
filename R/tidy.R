@@ -1,3 +1,7 @@
+library(stringr)
+library(readr)
+library(dplyr)
+
 #' Clean the location name by removing the country name with colon
 #'
 #' @param locname character vector with the location name
@@ -11,7 +15,7 @@
 #' }
 eq_location_clean <- function (locname) {
 
-  cleaned_locname <- str_to_title(gsub(".*: ", "", locname))
+  cleaned_locname <- stringr::str_to_title(gsub(".*: ", "", locname))
   return(cleaned_locname)
 }
 
