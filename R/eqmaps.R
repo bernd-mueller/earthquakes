@@ -1,3 +1,8 @@
+library(dplyr)
+library(leaflet)
+library(lubridate)
+library(readr)
+
 #' This method uses leaflet to plot latitude and longitude for earthquakes on the map.
 #' The map is interactive with markers that are clickable for showing a text.
 #'
