@@ -19,7 +19,7 @@ deaths.
 }
 \examples{
 \dontrun{
- eq_clean_data("data/signif.dat") \%>\%
+ eq_clean_data("inst/extdata/signif.dat") \%>\%
  dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) \%>\%
  dplyr::mutate(popup_text = eq_create_label(.)) \%>\%
  eq_map(annot_col = "popup_text")

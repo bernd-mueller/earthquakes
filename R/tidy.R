@@ -30,7 +30,7 @@ eq_location_clean <- function (locname) {
 #'
 #' @examples
 #' \dontrun{
-#' eqdata <- eq_clean_data ("extdata/signif.txt")
+#' eqdata <- eq_clean_data ("inst/extdata/signif.txt")
 #' }
 #'
 eq_clean_data <- function (filename) {
@@ -42,7 +42,7 @@ eq_clean_data <- function (filename) {
            LATITUDE = as.numeric(LATITUDE),
            LOCATION_NAME = eq_location_clean(LOCATION_NAME),
            DEATHS = as.numeric(DEATHS)) %>%
-    select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME, DEATHS, COUNTRY, EQ_PRIMARY)
+    dplyr::select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME, DEATHS, COUNTRY, EQ_PRIMARY)
     #select (YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME) %>%
     #unite(DATE, YEAR, MONTH, DAY, sep = "-", remove = TRUE)
   cleaned_eqtable[is.na(cleaned_eqtable)] <- 0
