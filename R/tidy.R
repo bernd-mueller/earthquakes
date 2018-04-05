@@ -49,7 +49,7 @@ eq_clean_data <- function (filename) {
            LATITUDE = as.numeric(LATITUDE),
            LOCATION_NAME = eq_location_clean(LOCATION_NAME),
            DEATHS = as.numeric(DEATHS)) %>%
-    select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME, DEATHS)
+    select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME, DEATHS, COUNTRY)
     #select (YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME) %>%
     #unite(DATE, YEAR, MONTH, DAY, sep = "-", remove = TRUE)
 

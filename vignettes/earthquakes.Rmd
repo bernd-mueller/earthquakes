@@ -25,7 +25,7 @@ The package contains functions for reading, processing, and plotting earthquake 
 This method reads the earthquake data from file and tidy it up. 
 Example for calling is:
 ```
-eqdata <- eq_clean_data ("data/signif.txt")
+eqdata <- eq_clean_data ("data/signif.dat")
 ```
 
 #### eq_location_clean
@@ -46,7 +46,7 @@ The geom layer is called within geom_timeline
 This method creates the required layer containing the timeline geom for earthquake data on.
 Example for calling is:
 ```
-p <- readr::read_delim(file = "data/signif.txt", delim = "\t") %>%
+p <- readr::read_delim(file = "data/signif.dat", delim = "\t") %>%
       eq_clean_data() %>% eq_location_clean() %>%
       dplyr::filter(YEAR >= 2000, COUNTRY %in% "USA") %>%
       ggplot2::ggplot() +
@@ -62,7 +62,7 @@ p <- readr::read_delim(file = "data/signif.txt", delim = "\t") %>%
 This method returns a layer that contains the timeline geom with labels for earthquake locations.
 Example for calling is:
 ```
-  p <- readr::read_delim(file = system.file("extdata", "signif.txt", package="noaa"),
+  p <- readr::read_delim("data/signif.dat",
                                            delim = "\t") %>%
       eq_clean_data() %>% eq_location_clean() %>%
       dplyr::filter(YEAR >= 1900, !is.na(DEATHS), !is.na(EQ_MAG_ML),
@@ -87,7 +87,7 @@ Function used internally to construct grid objects timeline geom with labels.
 This method uses leaflet to plot latitude and longitude for earthquakes on the map.
 Example for calling is:
 ```
-  readr::read_delim("data/signif.txt", delim = "\t") %>%
+  readr::read_delim("data/signif.dat", delim = "\t") %>%
   eq_clean_data() %>%
   dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
   eq_map(annot_col = "DATE")
@@ -99,7 +99,7 @@ This method returns a popup-text for each in the data frame with location name, 
 deaths.
 Example for calling is:
 ```
-  readr::read_delim(file = system.file("extdata", "signif.txt", package="noaa"),
+  readr::read_delim("data/signif.dat",
                    delim = "\t") %>%
   eq_clean_data() %>%
   dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%

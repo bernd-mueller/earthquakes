@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' \dontrun {
-#'  readr::read_delim("data/signif.txt", delim = "\t") %>%
+#'  readr::read_delim("data/signif.dat", delim = "\t") %>%
 #'  eq_clean_data() %>%
 #'  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
 #'  eq_map(annot_col = "DATE")
@@ -32,7 +32,7 @@ eq_map <- function(df, annot_col) {
 #  }
 
   # Get map
-  m <- leaflet() %>%
+  m <- leaflet::leaflet() %>%
     leaflet::addTiles() %>%  # Add default OpenStreetMap map tiles
     leaflet::addCircleMarkers(lng=df$LONGITUDE, lat=df$LATITUDE, popup=df[[annot_col]],
                               radius=as.numeric(df$EQ_PRIMARY), fillOpacity = 0.2, weight=1)
@@ -54,10 +54,8 @@ eq_map <- function(df, annot_col) {
 #'
 #' @examples
 #' \dontrun {
-#'  readr::read_delim(file = system.file("extdata", "signif.txt", package="noaa"),
-#'                   delim = "\t") %>%
-#'  eq_clean_data() %>%
-#'  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
+#'  eq_clean_data("data/signif.dat") %>%
+#'  dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) %>%
 #'  dplyr::mutate(popup_text = eq_create_label(.)) %>%
 #'  eq_map(annot_col = "popup_text")
 #' }
