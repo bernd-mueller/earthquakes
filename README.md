@@ -1,0 +1,108 @@
+---
+title: "Earthquake"
+author: "Bernd M"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This package is written for the capstone project of Mastering Software Development in R. 
+
+The package contains functions for reading, processing, and plotting earthquake data from NOAA. Please check the manual files for documentation of every function.
+
+#### eq_clean_data
+
+This method reads the earthquake data from file and tidy it up. 
+Example for calling is:
+```
+eqdata <- eq_clean_data ("data/signif.dat")
+```
+
+#### eq_location_clean
+
+Clean the location name by removing the country name with colon.
+Example for calling is:
+```
+ eq_location_clean("GREECE:  THERA ISLAND (SANTORINI)")
+```
+
+#### GeomTimeline
+
+Function that constructa the grid objects for the layera from "geom_timeline".
+The geom layer is called within geom_timeline
+
+#### geom_timeline
+
+This method creates the required layer containing the timeline geom for earthquake data on.
+Example for calling is:
+```
+p <- readr::read_delim(file = "data/signif.dat", delim = "\t") %>%
+      eq_clean_data() %>% eq_location_clean() %>%
+      dplyr::filter(YEAR >= 2000, COUNTRY %in% "USA") %>%
+      ggplot2::ggplot() +
+      geom_timeline(ggplot2::aes(x = DATE, colour = DEATHS,
+        size = EQ_MAG_ML)) +
+      ggplot2::labs(x = "DATE", color = "Deaths", size = "Richter scale")
+  gt <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(p))
+  grid::grid.draw(gt)
+```
+
+#### geom_timeline_label
+
+This method returns a layer that contains the timeline geom with labels for earthquake locations.
+Example for calling is:
+```
+  p <- readr::read_delim("data/signif.dat",
+                                           delim = "\t") %>%
+      eq_clean_data() %>% eq_location_clean() %>%
+      dplyr::filter(YEAR >= 1900, !is.na(DEATHS), !is.na(EQ_MAG_ML),
+                    COUNTRY %in% c("CHINA", "USA")) %>%
+      ggplot2::ggplot(ggplot2::aes(x = DATE,
+        colour = DEATHS,
+        size = EQ_MAG_ML)) +
+      geom_timeline() +
+      geom_timeline_label(ggplot2::aes(label = LOCATION_NAME, n_max = 5)) +
+      ggplot2::labs(x = "DATE", color = "# deaths", size = "Richter scale value")
+  gt <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(p))
+  grid::grid.draw(gt)
+```
+
+#### GeomTimelineLabel
+
+Function used internally to construct grid objects timeline geom with labels.
+
+
+#### eq_map
+
+This method uses leaflet to plot latitude and longitude for earthquakes on the map.
+Example for calling is:
+```
+  readr::read_delim("data/signif.dat", delim = "\t") %>%
+  eq_clean_data() %>%
+  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
+  eq_map(annot_col = "DATE")
+```
+
+#### eq_create_label
+
+This method returns a popup-text for each in the data frame with location name, magnitude and
+deaths.
+Example for calling is:
+```
+  readr::read_delim("data/signif.dat",
+                   delim = "\t") %>%
+  eq_clean_data() %>%
+  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
+  dplyr::mutate(popup_text = eq_create_label(.)) %>%
+  eq_map(annot_col = "popup_text")
+```
