@@ -11,6 +11,12 @@ vignette: >
 
 [![Build Status](https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master)](https://travis-ci.org/bernd-mueller/earthquakes)
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 This package is written for the capstone project of Mastering Software Development in R. 
 
