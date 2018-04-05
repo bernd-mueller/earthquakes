@@ -1,6 +1,3 @@
-
-[![Build Status](https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master)](https://travis-ci.org/bernd-mueller/earthquakes)
-
 ---
 title: "Earthquake"
 author: "Bernd M"
@@ -12,12 +9,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+[![Build Status](https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master)](https://travis-ci.org/bernd-mueller/earthquakes)
+
 
 This package is written for the capstone project of Mastering Software Development in R. 
 
