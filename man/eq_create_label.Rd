@@ -19,10 +19,8 @@ deaths.
 }
 \examples{
 \dontrun {
- readr::read_delim(file = system.file("extdata", "signif.txt", package="noaa"),
-                  delim = "\\t") \%>\%
- eq_clean_data() \%>\%
- dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) \%>\%
+ eq_clean_data("data/signif.dat") \%>\%
+ dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) \%>\%
  dplyr::mutate(popup_text = eq_create_label(.)) \%>\%
  eq_map(annot_col = "popup_text")
 }

@@ -37,7 +37,7 @@ The size aesthetic shows the Richter scale of the earthquakes.
 }
 \examples{
 \dontrun {
- p <- readr::read_delim(file = "data/signif.txt", delim = "\\t") \%>\%
+ p <- readr::read_delim("data/signif.dat", delim = "\\t") \%>\%
      eq_clean_data() \%>\% eq_location_clean() \%>\%
      dplyr::filter(YEAR >= 2000, COUNTRY \%in\% "USA") \%>\%
      ggplot2::ggplot() +
