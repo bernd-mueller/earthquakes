@@ -22,7 +22,7 @@
 #'  eq_map(annot_col = "DATE")
 #' }
 eq_map <- function(df, annot_col) {
-  if (nrow(df) == 0) {
+  test_that (nrow(df) == 0) {
     stop (paste("Data frame is empty"))
   }
 
