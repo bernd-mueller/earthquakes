@@ -1,8 +1,3 @@
-library(ggplot2)
-library(grid)
-library(dplyr)
-library(readr)
-
 #' Function that constructa the grid objects for the layera from "geom_timeline".
 #'
 #' @return A grid object list ready to be added to a ggplot layer.
