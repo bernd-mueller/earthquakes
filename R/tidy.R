@@ -30,7 +30,7 @@ eq_location_clean <- function (locname) {
 #'
 #' @examples
 #' \dontrun{
-#' eqdata <- eq_clean_data ("data/signif.txt")
+#' eqdata <- eq_clean_data ("extdata/signif.txt")
 #' }
 #'
 eq_clean_data <- function (filename) {
