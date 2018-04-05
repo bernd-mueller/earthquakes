@@ -8,6 +8,7 @@ library(dplyr)
 #'
 #' @return character vector with removed country name with colon
 #' @export
+#' @importFrom stringr str_to_title
 #'
 #' @examples
 #' \dontrun{
@@ -26,6 +27,10 @@ eq_location_clean <- function (locname) {
 #'
 #' @return data table that contains the cleaned earthquake data
 #' @export
+#' @importFrom readr read_delim
+#' @importFrom dplyr %>%
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
 #'
 #' @examples
 #' \dontrun{
@@ -35,12 +40,6 @@ eq_location_clean <- function (locname) {
 eq_clean_data <- function (filename) {
 
   eqtable <- read_delim(filename, delim = "\t", na = c("", "0"))
-
-  test_cols = c("YEAR", "MONTH", "DAY", "LATITUDE", "LONGITUDE", "DEATHS")
-  if (!all(test_cols %in% colnames(eqtable))) {
-    stop(paste("Not all coloumns", test_cols, "found in", colnames(eqtable)))
-  }
-
 
   cleaned_eqtable <- eqtable %>%
     mutate(DATE=YEAR, LONGITUDE = as.numeric(LONGITUDE),
