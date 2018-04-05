@@ -1,4 +1,5 @@
-https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master
+
+[![Build Status](https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master)](https://travis-ci.org/bernd-mueller/earthquakes)
 
 ---
 title: "Earthquake"
