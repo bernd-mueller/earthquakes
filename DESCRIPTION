@@ -9,9 +9,15 @@ License: Free For All
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests: knitr,
+Imports: ggplot2,
+         grid,
+         leaflet,
+         lubridate,
+         magrittr,
+         readr,
+         tools
+Suggests: 
+    knitr,
     rmarkdown,
-    testthat,
-    stringr,
-    grid
+    testthat
 VignetteBuilder: knitr
