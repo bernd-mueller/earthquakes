@@ -1,3 +1,5 @@
+https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master
+
 ---
 title: "Earthquake"
 author: "Bernd M"

@@ -37,15 +37,15 @@ eq_clean_data <- function (file) {
 
   eqtable <- read_delim(file, delim = "\t")
 
-  cleaned_eqtable <- eqtable %>%
-    mutate(DATE=YEAR, LONGITUDE = as.numeric(LONGITUDE),
-           LATITUDE = as.numeric(LATITUDE),
-           LOCATION_NAME = eq_location_clean(LOCATION_NAME),
-           DEATHS = as.numeric(DEATHS)) %>%
-    dplyr::select (DATE, LATITUDE, LONGITUDE, LOCATION_NAME, DEATHS, COUNTRY, EQ_PRIMARY)
-    #select (YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME) %>%
-    #unite(DATE, YEAR, MONTH, DAY, sep = "-", remove = TRUE)
-  cleaned_eqtable[is.na(cleaned_eqtable)] <- 0
-  return (cleaned_eqtable)
+  eqtable$DATE <- eqtable$YEAR
+  eqtable$LONGITUDE <- as.numeric(eqtable$LONGITUDE)
+  eqtable$LATITUDE <-  as.numeric(eqtable$LATITUDE)
+  eqtable$LOCATION_NAME <- eq_location_clean(eqtable$LOCATION_NAME)
+  eqtable$LOCATION_NAME <- eq_location_clean(eqtable$LOCATION_NAME)
+  eqtable$DEATHS <- as.numeric(eqtable$DEATHS)
+
+
+  eqtable[is.na(eqtable)] <- 0
+  return (eqtable)
 }
 

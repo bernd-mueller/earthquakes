@@ -19,9 +19,10 @@ deaths.
 }
 \examples{
 \dontrun{
- eq_clean_data(file = system.file("extdata", "signif.txt", package="earthquakes")) \%>\%
- dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) \%>\%
- dplyr::mutate(popup_text = eq_create_label(.)) \%>\%
- eq_map(annot_col = "popup_text")
+ f <- system.file("extdata", "signif.txt", package="earthquakes")
+ a <- eq_clean_data(file = f)
+ b <- dplyr::filter(a, COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000)
+ c <- dplyr::mutate(b, popup_text = eq_create_label(.))
+ eq_map(c, annot_col = "popup_text")
 }
 }

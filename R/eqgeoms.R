@@ -70,7 +70,8 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
 #'
 #' @examples
 #' \dontrun{
-#'  p <- readr::read_delim(file = system.file("extdata", "signif.txt", package="earthquakes"), delim = "\t") %>%
+#'  f <- system.file("extdata", "signif.txt", package="earthquakes")
+#'  p <- readr::read_delim(file = f, delim = "\t") %>%
 #'      eq_clean_data() %>% eq_location_clean() %>%
 #'      dplyr::filter(YEAR >= 2000, COUNTRY %in% "USA") %>%
 #'      ggplot2::ggplot() +
@@ -118,7 +119,8 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 #'
 #' @examples
 #' \dontrun{
-#'  p <- readr::read_delim(file = system.file("extdata", "signif.txt", package="earthquakes"),
+#'  f <- system.file("extdata", "signif.txt", package="earthquakes")
+#'  p <- readr::read_delim(file = f,
 #'                                           delim = "\t") %>%
 #'      eq_clean_data() %>% eq_location_clean() %>%
 #'      dplyr::filter(YEAR >= 1900, !is.na(DEATHS), !is.na(EQ_MAG_ML),
