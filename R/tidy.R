@@ -16,11 +16,9 @@ library(testthat)
 #'   eq_location_clean("GREECE:  THERA ISLAND (SANTORINI)")
 #' }
 eq_location_clean <- function (locname) {
-  test_that("Location Name is character"), {
-    expect_that(is.character(locname))
-  })
-  cleaned_locname <- str_to_title(gsub(".*:  ", "", locname))
-  cleaned_locname
+
+  cleaned_locname <- str_to_title(gsub(".*: ", "", locname))
+  return(cleaned_locname)
 }
 
 
@@ -37,10 +35,6 @@ eq_location_clean <- function (locname) {
 #' }
 #'
 eq_clean_data <- function (filename) {
-  test_that("Filename is character", {
-    expect_that(is.character(filename))
-    stop (paste("File name is not a String of Characters"), filename)
-  }
 
   eqtable <- read_delim(filename, delim = "\t")
 

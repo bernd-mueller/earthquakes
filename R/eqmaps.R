@@ -22,14 +22,14 @@
 #'  eq_map(annot_col = "DATE")
 #' }
 eq_map <- function(df, annot_col) {
-  test_that (nrow(df) == 0) {
-    stop (paste("Data frame is empty"))
-  }
+#  test_that (nrow(df) == 0) {
+#    stop (paste("Data frame is empty"))
+#  }
 
-  test_cols = c("LATITUDE", "LONGITUDE", "EQ_PRIMARY", annot_col)
-  if (!all(test_cols %in% colnames(df))) {
-    stop(paste("Not all coloumns", test_cols, "found in", colnames(df)))
-  }
+#  test_cols = c("LATITUDE", "LONGITUDE", "EQ_PRIMARY", annot_col)
+# if (!all(test_cols %in% colnames(df))) {
+#    stop(paste("Not all coloumns", test_cols, "found in", colnames(df)))
+#  }
 
   # Get map
   m <- leaflet() %>%
