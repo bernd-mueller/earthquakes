@@ -1,9 +1,3 @@
-library(readr)
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(testthat)
-
 #' Clean the location name by removing the country name with colon
 #'
 #' @param locname character vector with the location name
