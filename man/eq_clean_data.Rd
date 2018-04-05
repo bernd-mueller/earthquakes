@@ -16,8 +16,8 @@ data table that contains the cleaned earthquake data
 Read the earthquake data from file and tidy it up
 }
 \examples{
-\dontrun {
-  eqdata <- eq_clean_data ("data/signif.txt")
+\dontrun{
+eqdata <- eq_clean_data ("data/signif.txt")
 }
 
 }

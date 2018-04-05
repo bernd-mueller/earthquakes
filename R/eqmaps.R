@@ -15,7 +15,7 @@
 #' @importFrom readr read_delim
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #'  readr::read_delim("data/signif.dat", delim = "\t") %>%
 #'  eq_clean_data() %>%
 #'  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
@@ -35,7 +35,7 @@ eq_map <- function(df, annot_col) {
   m <- leaflet::leaflet() %>%
     leaflet::addTiles() %>%  # Add default OpenStreetMap map tiles
     leaflet::addCircleMarkers(lng=df$LONGITUDE, lat=df$LATITUDE, popup=df[[annot_col]],
-                              radius=as.numeric(df$EQ_PRIMARY), fillOpacity = 0.2, weight=1)
+                              radius=as.numeric(df$DEATHS), fillOpacity = 0.2, weight=1)
   return(m)
 }
 
@@ -53,7 +53,7 @@ eq_map <- function(df, annot_col) {
 #' @importFrom readr read_delim
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #'  eq_clean_data("data/signif.dat") %>%
 #'  dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) %>%
 #'  dplyr::mutate(popup_text = eq_create_label(.)) %>%

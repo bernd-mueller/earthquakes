@@ -1,9 +1,9 @@
 library(earthquakes)
 context("test-eq_map")
 
-filename <- "data/signif.dat"
-eq <- eq_clean_data(filename)
+df <-eq_clean_data(system.file("data", "signif.dat", package="earthquakes"))
+map <- df %>% eq_map("DATE")
 
 test_that("Check is data is a leaflet object", {
-  expect_that(eq_map(eq), is_a("leaflet"))
+  expect_that(map, is_a("leaflet"))
 })

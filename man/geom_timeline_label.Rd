@@ -36,7 +36,7 @@ The color aesthetic shows the number of deaths.
 The size aesthetic shows the Richter scale of the earthquakes.
 }
 \examples{
-\dontrun {
+\dontrun{
  p <- readr::read_delim("data/signif.dat",
                                           delim = "\\t") \%>\%
      eq_clean_data() \%>\% eq_location_clean() \%>\%

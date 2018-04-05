@@ -72,7 +72,7 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
 #' @importFrom readr read_delim
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #'  p <- readr::read_delim("data/signif.dat", delim = "\t") %>%
 #'      eq_clean_data() %>% eq_location_clean() %>%
 #'      dplyr::filter(YEAR >= 2000, COUNTRY %in% "USA") %>%
@@ -120,7 +120,7 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 #' @importFrom readr read_delim
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #'  p <- readr::read_delim("data/signif.dat",
 #'                                           delim = "\t") %>%
 #'      eq_clean_data() %>% eq_location_clean() %>%

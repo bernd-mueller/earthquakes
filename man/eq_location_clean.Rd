@@ -16,7 +16,7 @@ character vector with removed country name with colon
 Clean the location name by removing the country name with colon
 }
 \examples{
-\dontrun {
+\dontrun{
   eq_location_clean("GREECE:  THERA ISLAND (SANTORINI)")
 }
 }

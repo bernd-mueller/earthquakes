@@ -18,7 +18,7 @@ This method returns a popup-text for each in the data frame with location name, 
 deaths.
 }
 \examples{
-\dontrun {
+\dontrun{
  eq_clean_data("data/signif.dat") \%>\%
  dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) \%>\%
  dplyr::mutate(popup_text = eq_create_label(.)) \%>\%

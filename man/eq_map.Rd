@@ -20,7 +20,7 @@ This method uses leaflet to plot latitude and longitude for earthquakes on the m
 The map is interactive with markers that are clickable for showing a text.
 }
 \examples{
-\dontrun {
+\dontrun{
  readr::read_delim("data/signif.dat", delim = "\\t") \%>\%
  eq_clean_data() \%>\%
  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) \%>\%
