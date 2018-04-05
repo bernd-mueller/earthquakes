@@ -1,5 +1,3 @@
-https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master
-
 ---
 title: "Earthquake"
 author: "Bernd M"
@@ -10,6 +8,8 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+[![Build Status](https://travis-ci.org/bernd-mueller/earthquakes.svg?branch=master)](https://travis-ci.org/bernd-mueller/earthquakes)
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
