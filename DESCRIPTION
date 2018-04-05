@@ -12,11 +12,6 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
     testthat,
-    dplyr,
     stringr,
-    readr,
-    leaflet,
-    lubridate,
-    ggplot2,
     grid
 VignetteBuilder: knitr
