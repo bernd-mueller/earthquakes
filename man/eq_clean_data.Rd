@@ -4,10 +4,10 @@
 \alias{eq_clean_data}
 \title{Read the earthquake data from file and tidy it up}
 \usage{
-eq_clean_data(filename)
+eq_clean_data(file)
 }
 \arguments{
-\item{filename}{character vector with the file path containing the earthquake data}
+\item{file}{character vector with the file path containing the earthquake data}
 }
 \value{
 data table that contains the cleaned earthquake data
@@ -17,7 +17,7 @@ Read the earthquake data from file and tidy it up
 }
 \examples{
 \dontrun{
-eqdata <- eq_clean_data ("inst/extdata/signif.txt")
+eqdata <- eq_clean_data (file = system.file("extdata", "signif.txt", package="earthquakes"))
 }
 
 }

@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' \dontrun{
-#'  readr::read_delim("inst/extdata/signif.dat", delim = "\t") %>%
+#'  readr::read_delim(file = system.file("extdata", "signif.txt", package="earthquakes"), delim = "\t") %>%
 #'  eq_clean_data() %>%
 #'  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
 #'  eq_map(annot_col = "DATE")
@@ -54,7 +54,7 @@ eq_map <- function(df, annot_col) {
 #'
 #' @examples
 #' \dontrun{
-#'  eq_clean_data("inst/extdata/signif.dat") %>%
+#'  eq_clean_data(file = system.file("extdata", "signif.txt", package="earthquakes")) %>%
 #'  dplyr::filter(COUNTRY == "MEXICO" && lubridate::year(DATE) >= 2000) %>%
 #'  dplyr::mutate(popup_text = eq_create_label(.)) %>%
 #'  eq_map(annot_col = "popup_text")

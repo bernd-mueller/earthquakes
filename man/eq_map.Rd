@@ -21,7 +21,7 @@ The map is interactive with markers that are clickable for showing a text.
 }
 \examples{
 \dontrun{
- readr::read_delim("inst/extdata/signif.dat", delim = "\\t") \%>\%
+ readr::read_delim(file = system.file("extdata", "signif.txt", package="earthquakes"), delim = "\\t") \%>\%
  eq_clean_data() \%>\%
  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) \%>\%
  eq_map(annot_col = "DATE")

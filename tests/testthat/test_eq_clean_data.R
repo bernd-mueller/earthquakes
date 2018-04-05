@@ -1,8 +1,8 @@
 library(earthquakes)
 context("test_eq_clean_data")
 
-filename <- "inst/extdata/signif.dat"
+file <- system.file("extdata", "signif.txt", package="earthquakes")
 
 test_that("Test eq_clean_data if it's a dataframe", {
-  expect_that(eq_clean_data(filename), is_a("data.frame"))
+  expect_that(eq_clean_data(file), is_a("data.frame"))
 })

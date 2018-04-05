@@ -5,7 +5,8 @@ Version: 0.1.0
 Author: Bernd M
 Maintainer: Bernd M <bernd.mueller@zbmed.det>
 Description: Package for processing and visualizing earthquake data
-License: Free For All
+    that works on NOAA data set.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

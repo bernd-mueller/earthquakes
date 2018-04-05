@@ -19,7 +19,7 @@ eq_location_clean <- function (locname) {
 
 #' Read the earthquake data from file and tidy it up
 #'
-#' @param filename character vector with the file path containing the earthquake data
+#' @param file character vector with the file path containing the earthquake data
 #'
 #' @return data table that contains the cleaned earthquake data
 #' @export
@@ -30,12 +30,12 @@ eq_location_clean <- function (locname) {
 #'
 #' @examples
 #' \dontrun{
-#' eqdata <- eq_clean_data ("inst/extdata/signif.txt")
+#' eqdata <- eq_clean_data (file = system.file("extdata", "signif.txt", package="earthquakes"))
 #' }
 #'
-eq_clean_data <- function (filename) {
+eq_clean_data <- function (file) {
 
-  eqtable <- read_delim(filename, delim = "\t", na = c("", "0"))
+  eqtable <- read_delim(file, delim = "\t")
 
   cleaned_eqtable <- eqtable %>%
     mutate(DATE=YEAR, LONGITUDE = as.numeric(LONGITUDE),
