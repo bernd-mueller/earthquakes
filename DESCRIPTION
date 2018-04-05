@@ -19,5 +19,4 @@ Suggests: knitr,
     lubridate,
     ggplot2,
     grid
-    
 VignetteBuilder: knitr
